@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "919128537446",
+    "firebase_url": "https://sant-vicharan.firebaseio.com",
+    "project_id": "sant-vicharan",
+    "storage_bucket": "sant-vicharan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919128537446:android:221b869eae404af9",
+        "android_client_info": {
+          "package_name": "com.projects.vimal.santvicharan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919128537446-6gf5pskplqfd7anudnd8hsr5h9e315jq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.projects.vimal.santvicharan",
+            "certificate_hash": "ce6c5ecaa18f460f12a1d6b2bc854ac5ea636c73"
+          }
+        },
+        {
+          "client_id": "919128537446-7gf95m1nt4sv7avp9mqef424f3ocf9l9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwyZOTh5z9RejYBunaRjPkmnRG9ZtxRXc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919128537446-7gf95m1nt4sv7avp9mqef424f3ocf9l9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
