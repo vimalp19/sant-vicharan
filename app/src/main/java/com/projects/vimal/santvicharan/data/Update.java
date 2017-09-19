@@ -14,6 +14,16 @@ public class Update extends Haribhakta {
     private String note;
     private int id;
 
+
+    public Update (String systemId, Date date, String note, int id) {
+
+        super.setSystemId(systemId);
+        this.date = date;
+        this.note = note;
+        this.id = id;
+    }
+
+
     /**
      * Get the date for the update
      * @return

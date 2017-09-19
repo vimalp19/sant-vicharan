@@ -6,13 +6,22 @@ package com.projects.vimal.santvicharan.data;
  * Class to hold the Haribhakta's relationship
  */
 
-public class Relationship {
+public class Relationship extends Haribhakta {
 
     //TODO - Consider implementing an enum for allowable relationship types
     private String type;
 
     private int relatedHaribhaktaId;
     private int id;
+
+    public Relationship (String systemId, String type,
+                         int relatedHaribhaktaId, int id) {
+
+        super.setSystemId(systemId);
+        this.type = type;
+        this.relatedHaribhaktaId = relatedHaribhaktaId;
+        this.id = id;
+    }
 
     /**
      * Get the relationship type

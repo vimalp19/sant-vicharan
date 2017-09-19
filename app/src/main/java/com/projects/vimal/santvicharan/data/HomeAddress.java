@@ -14,6 +14,18 @@ public class HomeAddress extends Haribhakta {
     private int zipCode;
     private String country;
 
+
+    public HomeAddress (String systemId, String streetAddress, String city,
+                        String state, int zipCode, String country) {
+
+        super.setSystemId(systemId);
+        this.streetAddress = streetAddress;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.country = country;
+    }
+
     /**
      * Get the home street address
      * @return

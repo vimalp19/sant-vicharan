@@ -8,13 +8,13 @@ package com.projects.vimal.santvicharan.data;
 
 public class Haribhakta {
 
-    private int systemId;
+    private String systemId;
 
     /**
      * Get the Haribhakta's system generated ID
      * @return
      */
-    public int getSystemId() {
+    public String getSystemId() {
         return systemId;
     }
 
@@ -22,7 +22,7 @@ public class Haribhakta {
      * Set the Haribhakta's system generated ID
      * @param systemId
      */
-    public void setSystemId(int systemId) {
+    public void setSystemId(String systemId) {
         this.systemId = systemId;
     }
 }

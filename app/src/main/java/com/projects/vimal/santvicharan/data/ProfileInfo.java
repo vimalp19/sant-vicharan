@@ -22,6 +22,25 @@ public class ProfileInfo extends Haribhakta {
     private int regionNum;
     private int countryNum;
 
+    public ProfileInfo () {
+
+    }
+
+    public ProfileInfo (String systemId, String firstName, String lastName,
+                        String center, String emailAddress, String phoneNumber,
+                        int centerNum, int regionNum, int countryNum) {
+
+        super.setSystemId(systemId);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.center = center;
+        this.emailAddress = emailAddress;
+        this.phoneNumber = phoneNumber;
+        this.centerNum = centerNum;
+        this.regionNum = regionNum;
+        this.countryNum = countryNum;
+    }
+
     /**
      * Get the Haribhakta's first name
      * @return
