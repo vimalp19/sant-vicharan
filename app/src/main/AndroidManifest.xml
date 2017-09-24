@@ -18,11 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".DisplayMessageActivity"
-            android:parentActivityName=".MainActivity" />
         <activity android:name=".AddHaribhakta" />
-        <activity android:name=".main_haribhakta"></activity>
+        <activity android:name=".HaribhaktaUpdate" />
+        <activity android:name=".HaribhaktaUpdate2" />
+        <activity android:name=".AddUpdate"></activity>
     </application>
 
 </manifest>

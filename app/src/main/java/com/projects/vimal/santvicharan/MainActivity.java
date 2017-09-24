@@ -1,21 +1,19 @@
 package com.projects.vimal.santvicharan;
 
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,12 +21,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.projects.vimal.santvicharan.Adapter.HaribhaktasAdapter;
 import com.projects.vimal.santvicharan.data.DataConstants;
-import com.projects.vimal.santvicharan.data.HomeAddress;
 import com.projects.vimal.santvicharan.data.ProfileInfo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 import static com.firebase.ui.auth.AuthUI.*;
@@ -38,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String NOT_AUTHENTICATED_HRBKT = "Unknown - Not signed in";
 
     private final String CLASS_NAME = this.getClass().getSimpleName();
+    public static final String EXTRA_MESSAGE = "com.projects.vimal.santvicharan.MESSAGE";
 
     public static final int RC_SIGN_IN = 1;
 
@@ -76,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         //Button to add a new haribhakta
         addHaribhakta = findViewById(R.id.addHaribhakta);
 
+        //Navigate to adding a new haribhakta when the button is clicked
         addHaribhakta.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -89,6 +87,24 @@ public class MainActivity extends AppCompatActivity {
 
         //Retrieve list of profile infos from the DB
         performRetrieveFromDB();
+
+
+        //Navigate to the haribhakta that is clicked
+        profileInfoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                ProfileInfo profile = (ProfileInfo) profileInfoListView.getItemAtPosition(position);
+
+                //Get the Haribhakta's system ID and pass it to the next activity
+                String systemID = profile.getSystemId();
+
+                Intent intent = new Intent(getApplicationContext(), HaribhaktaUpdate.class);
+                intent.putExtra(EXTRA_MESSAGE, systemID);
+                startActivity(intent);
+
+                Log.d(CLASS_NAME, "Getting updates for haribhakta: " + profile.getSystemId());
+            }
+        });
 
 
         //Call auth state listener to determine the authentication status

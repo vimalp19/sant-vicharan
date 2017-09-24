@@ -76,5 +76,8 @@
         <item>WI</item>
         <item>WY</item>
     </string-array>
+    <string name="title_activity_add_haribhakta">Add New Haribhakta</string>
+    <string name="title_activity_haribhakta_update">Haribhakta Updates</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

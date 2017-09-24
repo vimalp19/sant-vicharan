@@ -12,10 +12,14 @@ public class Update extends Haribhakta {
 
     private Date date;
     private String note;
-    private int id;
+    private String id;
 
 
-    public Update (String systemId, Date date, String note, int id) {
+    public Update() {
+
+    }
+
+    public Update (String systemId, Date date, String note, String id) {
 
         super.setSystemId(systemId);
         this.date = date;
@@ -60,7 +64,7 @@ public class Update extends Haribhakta {
      * Set the update's system generated ID
      * @return
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -69,7 +73,7 @@ public class Update extends Haribhakta {
      * Get the update's system generated ID
      * @param id
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }
