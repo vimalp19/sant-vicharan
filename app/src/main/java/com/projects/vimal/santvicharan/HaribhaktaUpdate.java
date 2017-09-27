@@ -43,7 +43,7 @@ public class HaribhaktaUpdate extends AppCompatActivity {
     private Query matchingUpdates;
 
     /**
-     * Executed on creation of the acitivity
+     * Executed on creation of the activity
      * @param savedInstanceState
      */
     @Override

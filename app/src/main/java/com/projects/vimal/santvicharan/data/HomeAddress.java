@@ -11,12 +11,12 @@ public class HomeAddress extends Haribhakta {
     private String streetAddress;
     private String city;
     private String state;
-    private int zipCode;
+    private String zipCode;
     private String country;
 
 
     public HomeAddress (String systemId, String streetAddress, String city,
-                        String state, int zipCode, String country) {
+                        String state, String zipCode, String country) {
 
         super.setSystemId(systemId);
         this.streetAddress = streetAddress;
@@ -78,7 +78,7 @@ public class HomeAddress extends Haribhakta {
      * Get the zip code
      * @return
      */
-    public int getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
@@ -86,7 +86,7 @@ public class HomeAddress extends Haribhakta {
      * Set the zip code
      * @param zipCode
      */
-    public void setZipCode(int zipCode) {
+    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 

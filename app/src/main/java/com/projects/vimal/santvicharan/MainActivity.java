@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Executed on creation of the acitivity
+     * Executed on creation of the activity
      * @param savedInstanceState
      */
     @Override

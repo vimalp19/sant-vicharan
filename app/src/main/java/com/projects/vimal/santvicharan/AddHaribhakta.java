@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,7 +39,7 @@ public class AddHaribhakta extends AppCompatActivity {
 
 
     /**
-     * Executed on creation of the acitivity
+     * Executed on creation of the activity
      * @param savedInstanceState
      */
     @Override
@@ -70,13 +71,21 @@ public class AddHaribhakta extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //Add the inputted information to add new haribhakta
-                addNewHaribhakta();
+                //Display Toast message if input validation fails
+                if (!inputValidated()) {
+                    Toast.makeText(getApplicationContext(), "Please enter both first and last name!",
+                            Toast.LENGTH_SHORT).show();
+                }
 
-                Log.i(CLASS_NAME, "Successfully added new haribhakta, transitioning back to main activity");
+                //Otherwise, add the inputted information to add new haribhakta
+                else {
 
-                //Then, transition back to the Main Activity
-                startActivity(new Intent(AddHaribhakta.this, MainActivity.class));
+                    addNewHaribhakta();
+                    Log.i(CLASS_NAME, "Successfully added new haribhakta, transitioning back to main activity");
+
+                    //Then, transition back to the Main Activity
+                    startActivity(new Intent(AddHaribhakta.this, MainActivity.class));
+                }
             }
         });
     }
@@ -139,7 +148,7 @@ public class AddHaribhakta extends AppCompatActivity {
         String aStreetAddress = streetAddress.getText().toString();
         String aCity = city.getText().toString();
         String aState = state.getSelectedItem().toString();
-        int aZipCode = Integer.parseInt(zipCode.getText().toString());
+        String aZipCode = zipCode.getText().toString();
 
         //Get the new Haribhakta's system ID
         String systemId = profileInfoTable.push().getKey();
@@ -164,5 +173,26 @@ public class AddHaribhakta extends AppCompatActivity {
         homeAddressTable.push().setValue(homeAddress);
 
         Log.i(CLASS_NAME, "Adding to HOME_ADDRESS_TABLE: " + homeAddress.toString());
+    }
+
+
+    /**
+     * Method to validate the data entered by the user when the "Submit" button is clicked
+     * @return
+     */
+    private boolean inputValidated() {
+
+        String aFirstName = firstName.getText().toString();
+        String aLastName = lastName.getText().toString();
+
+        //Fail validation if first or last name is not entered
+        if ("".equals(aFirstName) || "".equals(aLastName)) {
+
+            Log.i(CLASS_NAME, "First name or last name not entered when Submit button" +
+                    "is clicked");
+            return false;
+        }
+
+        return true;
     }
 }

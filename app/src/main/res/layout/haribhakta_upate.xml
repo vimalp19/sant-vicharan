@@ -13,17 +13,50 @@
         android:layout_marginTop="16dp"
         android:text="Date: "
         android:textAlignment="textStart"
-        android:textSize="18sp"
+        android:textAllCaps="true"
+        android:textSize="20sp"
         android:textStyle="bold"
         tools:text="Date:" />
+
+    <TextView
+        android:id="@+id/updateNiyamsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:text="Niyams Discussed:"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/updateNiyams"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="4dp"
+        android:text="niyams...."
+        android:textAlignment="textStart"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/updateNoteLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:text="Notes:"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/updateNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="18dp"
         android:layout_marginTop="4dp"
-        android:text="Notes.........."
-        android:textAlignment="textStart" />
+        android:layout_marginBottom="4dp"
+        android:text="notes...."
+        android:textAlignment="textStart"
+        android:textSize="14sp" />
 
 </LinearLayout>

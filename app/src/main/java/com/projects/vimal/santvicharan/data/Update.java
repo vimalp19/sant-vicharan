@@ -13,18 +13,19 @@ public class Update extends Haribhakta {
     private Date date;
     private String note;
     private String id;
-
+    private Niyams niyams;
 
     public Update() {
 
     }
 
-    public Update (String systemId, Date date, String note, String id) {
+    public Update (String systemId, Date date, String note, String id, Niyams niyams) {
 
         super.setSystemId(systemId);
         this.date = date;
         this.note = note;
         this.id = id;
+        this.niyams = niyams;
     }
 
 
@@ -68,12 +69,27 @@ public class Update extends Haribhakta {
         return id;
     }
 
-    //TODO - Is this even really needed?
     /**
      * Get the update's system generated ID
      * @param id
      */
     public void setId(String id) {
         this.id = id;
+    }
+
+    /**
+     * Set the update's niyams discussed
+      * @return
+     */
+    public Niyams getNiyams() {
+        return niyams;
+    }
+
+    /**
+     * Get the update's niyams discussed
+     * @param niyams
+     */
+    public void setNiyams(Niyams niyams) {
+        this.niyams = niyams;
     }
 }

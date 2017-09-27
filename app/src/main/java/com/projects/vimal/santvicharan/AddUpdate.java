@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.projects.vimal.santvicharan.data.DataConstants;
+import com.projects.vimal.santvicharan.data.Niyams;
 import com.projects.vimal.santvicharan.data.Update;
 
 import java.util.Calendar;
@@ -22,6 +24,8 @@ public class AddUpdate extends AppCompatActivity {
 
     private EditText notes;
     private Button submit;
+    private CheckBox puja, cheshta, gujaratiReading, satsangReading;
+    private CheckBox noOG, extraMalas, bowToParents, gharSabha;
 
     private String systemId;
 
@@ -30,7 +34,7 @@ public class AddUpdate extends AppCompatActivity {
 
 
     /**
-     * Executed on creation of the acitivity
+     * Executed on creation of the activity
      * @param savedInstanceState
      */
     @Override
@@ -41,6 +45,14 @@ public class AddUpdate extends AppCompatActivity {
         //Attach variables to field/button in the activity
         notes = findViewById(R.id.updateToAdd);
         submit = findViewById(R.id.addUpdateButton);
+        puja = findViewById(R.id.pujaCB);
+        cheshta = findViewById(R.id.tilakChandloCB);
+        gujaratiReading = findViewById(R.id.gujaratiReadingCB);
+        satsangReading = findViewById(R.id.satsangReadingCB);
+        noOG = findViewById(R.id.NoOGCB);
+        extraMalas = findViewById(R.id.extraMalasCB);
+        bowToParents = findViewById(R.id.bowToParentsCB);
+        gharSabha = findViewById(R.id.gharSabhaCB);
 
         //Get the Haribhakta's system ID
         getSystemId();
@@ -102,7 +114,6 @@ public class AddUpdate extends AppCompatActivity {
         String aNotes = notes.getText().toString();
 
         //TODO - Implement functionality for user to generate date
-        //TODO - Maybe pass in the time as String instead of Date object
         Date aCurrentTime = Calendar.getInstance().getTime();
 
         //Get the ID for the new update
@@ -110,8 +121,14 @@ public class AddUpdate extends AppCompatActivity {
 
         Log.i(CLASS_NAME, "Generated new ID for update: " + id);
 
+        //Get the values for the checkboxes
+        Niyams niyams = new Niyams(puja.isChecked(), cheshta.isChecked(),
+                gujaratiReading.isChecked(), satsangReading.isChecked(),
+                noOG.isChecked(), extraMalas.isChecked(), bowToParents.isChecked(),
+                gharSabha.isChecked());
+
         //Add data to VICHARAN_UPDATE_TABLE
-        Update update = new Update(systemId, aCurrentTime, aNotes, id);
+        Update update = new Update(systemId, aCurrentTime, aNotes, id, niyams);
         vicharanUpdateTable.child(id).setValue(update);
 
         Log.i(CLASS_NAME, update.getSystemId() + " " + aCurrentTime.toString() + " " + aNotes + " " + id);
